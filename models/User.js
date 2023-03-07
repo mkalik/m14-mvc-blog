@@ -1,5 +1,6 @@
 const { Model, DataTypes: dt } = require('sequelize');
 const sequelize = require('../config/connection.js');
+console.log(sequelize);
 const hide = require('bcrypt');
 
 class User extends Model {
@@ -62,9 +63,8 @@ User.init(
                 return user;
             },
         },
-    },
-    {
-        sequelize,
+
+        sequelize: sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
